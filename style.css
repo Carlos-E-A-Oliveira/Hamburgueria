@@ -1,0 +1,226 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+body{
+    background-color: rgb(190, 190, 190);
+}
+
+.logo{
+    width: 200px;
+    height: 200px;
+    background-image: url(./img/hamb-1.png);
+    background-size: cover;
+    border-radius: 50%;
+    box-shadow: 10%;
+}
+
+.land{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: aliceblue;
+    font-size: 20px;
+    width: 100%;
+    height: 430px;
+    background-image: url(./img/bg.png);
+    background-size: cover;
+    gap: 10px;
+}
+
+.endereco{
+    font-size: 15px;
+}
+
+.hor{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgb(19, 87, 31);
+    font-size: 15px;
+}
+.land2{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    font-size: 20px;
+}
+.grid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    margin-top: 10px;
+    gap: 10px;
+   
+}
+.burguer1{
+    display: flex;
+    padding: 20px;
+
+}
+.name_burguer{
+    font-size: 20px;
+    font-weight: 700;
+}
+.itens_burguer{
+    text-align: justify;
+}
+.grid2{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    margin-top: 10px;
+    margin-bottom: 80px;
+    gap: 10px;
+
+   
+}
+.refri1, .refri2{
+    display: flex;
+    margin-top: 20px;
+    
+}
+.refri1{
+    grid-column: 2/2;
+}
+.refri2{
+    grid-column: 3/3;
+}
+.refri1 .Price_Button, .refri2 .Price_Button{
+    margin-top: 20px;
+    
+}
+.burguer img{
+    margin: 0 10px;
+    width: 80px;
+    height: 80px;
+    border-radius: 5px;
+    transition: 0.1s;
+    
+}
+.burguer img:hover{
+    transform:rotate(-2deg);
+    width: 90px;
+    height: 90px;
+}
+.material-symbols-outlined{
+    width: 40px;
+    background-color: black;
+    color: aliceblue;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.Price_Button{
+    display: flex;
+    gap: 2px;
+    justify-content: space-between;
+}
+.land3{
+    position: fixed;
+    display:flex;
+    z-index: 100;
+    align-items: center;
+    justify-content: center;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+    background-color: rgb(201, 46, 46);
+    color: white;
+    gap: 10px;
+    cursor: pointer;
+
+}
+.land3 .material-symbols-outlined{
+    width: 40px;
+    background-color: rgb(201, 46, 46);
+    color: aliceblue;
+    border-radius: 0px;
+    cursor: pointer;
+}
+.background_Carrinho{
+    display:none;
+    position:fixed ;
+    z-index: 99;
+    background-color:rgba(5, 5, 5, 0.5);
+    width: 100%;
+    height: 100%;
+}
+.carrinho{
+    background-color: aliceblue;
+    border-radius: 5px;
+    position:fixed ;
+    z-index: 100;
+    width: 550px;
+    height: 60vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    padding: 2%;
+    overflow: auto;
+    
+    
+}
+.total_carrinho{
+    display: flex;
+    gap: 10px;
+}
+
+.endereco2{
+    gap: 10px;
+    width: 100%;
+    height: 30px;
+    border: 2px solid gray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.DigiteEnd{
+    display: none;
+    color: red;
+}
+.button{
+    display: flex;
+    justify-content: space-between;
+}
+.btn_close{
+    background-color: rgb(199, 199, 199);
+    border-radius: 2px;
+    width: 60px;
+    height: 30px;
+    cursor: pointer;
+}
+.bnt_finish{
+    background-color: rgb(19, 87, 31);
+    color: aliceblue;
+    border-radius: 2px;
+    width: 110px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.car-item-add{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+    border-radius: 2px;
+    background-color: rgb(170, 211, 247);
+    margin: 5px;
+}
+
+@media screen and (max-width: 600px) {
+.grid{
+    display: block;
+    
+}
+.carrinho{
+    width: 90%;
+    height: 60vh;
+    
+}
+}
