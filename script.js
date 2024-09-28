@@ -47,6 +47,9 @@ document.addEventListener('DOMContentLoaded', function(){
             const name = parentBnt.getAttribute("data-name");
             const price = parseFloat(parentBnt.getAttribute("data-price")); //parseFloat converte a string em float
             addToCard(name,price);
+            chamada1.classList.remove("pulsar");
+            void chamada1.offsetWidth;
+            chamada1.classList.add("pulsar");
         }
     })
 
@@ -56,7 +59,9 @@ document.addEventListener('DOMContentLoaded', function(){
             const name = parentBnt.getAttribute("data-name");
             const price = parseFloat(parentBnt.getAttribute("data-price"));
             addToCard(name,price);
-            
+            chamada1.classList.remove("pulsar");
+            void chamada1.offsetWidth;
+            chamada1.classList.add("pulsar");
         }
         
     })
@@ -115,12 +120,18 @@ document.addEventListener('DOMContentLoaded', function(){
         
         car_count.textContent = quantidade; 
         /* car_count.innerHTML = list.length; */ // esta função calcula a quantidade de itens diferentes no carrinho, contando como 1 vários itens de mesmo nome
+
+        
+        
     }
 
     itensCart.addEventListener("click", function(event){
         if(event.target.classList.contains("btn_close")){
             const name = event.target.getAttribute("data-name");
             removeItemCart(name);
+            chamada1.classList.remove("pulsar");
+            void chamada1.offsetWidth;
+            chamada1.classList.add("pulsar");
         }
     })
 
@@ -164,6 +175,22 @@ document.addEventListener('DOMContentLoaded', function(){
             return;
         }
     })
+
+    function checkRestaurantOpen(){
+        const data = new Date();
+        const hora = data.getHours();
+
+        return hora >= 18 && hora < 23;
+    }
+
+    const hor = document.getElementById("hor");
+    const isOpen = checkRestaurantOpen();
+    
+    if(isOpen){
+        hor.style.backgroundColor = "rgb(19, 87, 31)";
+    }else{
+        hor.style.backgroundColor = "red";
+    }
 })
 
     

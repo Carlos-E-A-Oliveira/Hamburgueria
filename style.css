@@ -56,13 +56,17 @@ body{
 .grid{
     display: grid;
     grid-template-columns: repeat(2,1fr);
-    margin-top: 10px;
     gap: 10px;
+    margin: 10px;
+    
    
 }
+
 .burguer1{
     display: flex;
     padding: 20px;
+    background-color: white;
+    border-radius: 5px;
 
 }
 .name_burguer{
@@ -84,6 +88,8 @@ body{
 .refri1, .refri2{
     display: flex;
     margin-top: 20px;
+    background-color: white;
+    border-radius: 5px;
     
 }
 .refri1{
@@ -217,10 +223,28 @@ body{
 .grid{
     display: block;
     
+    
 }
 .carrinho{
     width: 90%;
     height: 60vh;
     
 }
+}
+
+@keyframes pulsar {
+    0%{
+        transform: scale(1);
+        
+    }
+    50%{
+        transform: scale(1.1);
+
+    }
+    100%{
+        transform: scale(1);
+    }
+}
+.pulsar{
+    animation: pulsar 0.3s ease-out;
 }
