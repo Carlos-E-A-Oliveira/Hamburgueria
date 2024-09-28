@@ -114,8 +114,35 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if(add == 0){
             quantidade += 1;
+            
+            Toastify({
+                text: "1 item adicionado!",
+                duration: 3000,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "rgb(19, 87, 31)",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
+
         }else{
             quantidade -= 1;
+
+            Toastify({
+                text: "1 item excluído!",
+                duration: 3000,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "red",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
         }
         
         car_count.textContent = quantidade; 
@@ -174,6 +201,21 @@ document.addEventListener('DOMContentLoaded', function(){
             endereco2.style.border = "2px solid red";
             return;
         }
+
+        let constList = list.map((item) =>{
+            return(
+                `${item.name} Quantidade: (${item.quantity}) Preço: R$ ${item.price} \n`
+            )
+    
+        }).join("")
+        
+        let message = encodeURIComponent(constList);
+        let phone = "14988070943"
+
+        window.open(`http://wa.me/${phone}?text=${message} Endereço: ${endereco2.value}`, "_blank")
+        list = [];
+        endereco2.value = "";
+        carList();
     })
 
     function checkRestaurantOpen(){
@@ -191,6 +233,8 @@ document.addEventListener('DOMContentLoaded', function(){
     }else{
         hor.style.backgroundColor = "red";
     }
+
+    
 })
 
     
