@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dev Burguer - a melhor humbergueria</title>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Dev Burguer">
+    <meta property="og:image" content="https://carlos-e-a-oliveira.github.io/Hamburgueria/img/hamb-1.png">
+    <meta property="og:description" content="A melhor hamburgueria DEV">
+    <meta property="og:name" content="Dev Burguer">
+</head>
+<body>
+    <div class="background_Carrinho" id="car">
+        <div class="carrinho" >
+            <h1 class="land2">Seu carrinho</h1>
+            <div class="itens-cart" id="itens-cart"></div>
+            <div class="total_carrinho">
+                <p>Total:</p>
+                <span id="total-price">0.00</span>
+            </div>
+            <p>Endereço de entrega:</p>
+            <input class="endereco2" id="endereco2" type="text" placeholder="Digite seu endereço">
+            <p class="DigiteEnd" id="DigiteEnd">Digite seu endereço completo!</p>
+            <div class="button" >
+                <button class="btn_close" id="btn_close">Fechar</button>
+                <button class="bnt_finish" id="bnt_finish">Finalizar Pedido</button>
+            </div>    
+        </div>
+    </div>    
+    <div class="land" >
+        <div class="logo" alt="Logo Dev Burguer"></div>
+        <h1>Dev Burguer</h1>
+        <h2 class="endereco">Rua: Alto, 7 - Parque Baixo</h2>
+        <div class="hor" id="hor">
+            <span>Ter á Dom - das 18h00 ás 23:00</span>
+        </div>
+    </div>
+    <div class="land2">
+        <h2>Conheça nosso menu</h2>
+    </div>  
+    <div class="grid" id="grid">
+        <div class="burguer1">
+            <div class="burguer">
+                <img src="./img/hamb-2.png" alt="Hamburguer Style">
+            </div>
+            <div>
+                <p class="name_burguer">Hamburguer Style</p>
+                <p class="itens_burguer">Pão Brioche Tostado, Carne Angus, Queijo Cheddar Derretido, Bacon Crocante, Cebola Caramelizada, Alface, Tomate, Molho Especial, Pickles.</p>
+                <div class="Price_Button">
+                    <p>R$ 20.00</p>
+                    <button class="button" id="Add_Card" data-name="Hamburguer Style" data-price="20.00" data-img="./img/hamb-2.png">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div> 
+        <div class="burguer1">
+            <div class="burguer">
+                <img src="./img/hamb-3.png" alt="Hamburguer Duplo">
+            </div>
+            <div>
+                <p class="name_burguer">Hamburguer Duplo</p>
+                <p class="itens_burguer">Pão Brioche Tostado, Carne Angus, Queijo Cheddar Derretido, Bacon Crocante, Cebola Caramelizada, Alface, Tomate, Molho Especial, Pickles.</p>
+                <div class="Price_Button">
+                    <p>R$ 28.00</p>
+                    <button class="button" id="Add_Card" data-name="Hamburguer Duplo" data-price="28.00" data-img="./img/hamb-3.png">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="burguer1">
+            <div class="burguer">
+                <img src="./img/hamb-4.png" alt="Hamburguer X-Salada">
+            </div>
+            <div>
+                <p class="name_burguer">Hamburguer X-Salada</p>
+                <p class="itens_burguer">Pão Brioche Tostado, Carne Angus, Queijo Cheddar Derretido, Bacon Crocante, Cebola Caramelizada, Alface, Tomate, Molho Especial, Pickles.</p>
+                <div class="Price_Button">
+                    <p>R$ 32.00</p>
+                    <button class="button" id="Add_Card" data-name="Hamburguer X-Salada" data-price="32.00" data-img="./img/hamb-4.png">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div> 
+        <div class="burguer1">
+            <div class="burguer">
+                <img src="./img/hamb-5.png" alt="Hamburguer Master Bacon">
+            </div>
+            <div>
+                <p class="name_burguer">Hamburguer Master Bacon</p>
+                <p class="itens_burguer">Pão Brioche Tostado, Carne Angus, Queijo Cheddar Derretido, Bacon Crocante, Cebola Caramelizada, Alface, Tomate, Molho Especial, Pickles.</p>
+                <div class="Price_Button">
+                    <p>R$ 36.00</p>
+                    <button class="button" id="Add_Card" data-name="Hamburguer Master Bacon" data-price="36.00" data-img="./img/hamb-5.png">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="land2">
+        <h2>Bebidas</h2>
+    </div> 
+    <div class="grid2" id="grid2">
+        <div class="refri1">
+            <div class="burguer">
+                <img src="./img/refri-1.png" alt="coca-cola">
+            </div>
+            <div>
+                <p class="name_burguer">Coca-Cola</p>
+                <div class="Price_Button">
+                    <p>R$ 7.50</p>
+                    <button class="button" id="Add_Card" data-name="Coca-Cola" data-price="7.50" data-img="./img/refri-1.png">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="refri2">
+            <div class="burguer">
+                <img src="./img/refri-2.png" alt="Guaraná">
+            </div>
+            <div>
+                <p class="name_burguer">Guaraná</p>
+                <div class="Price_Button">
+                    <p>R$ 5.50</p>
+                    <button class="button" id="Add_Card" data-name="Guarana" data-price="5.50" data-img="./img/refri-2.png">
+                        <span class="material-symbols-outlined">
+                            shopping_cart
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="land3" id="land3">
+        (<p id="car_count">0</p>)
+        <p>Veja seu carrinho</p>
+        <button class="button1" id="Add_Card">
+            <span class="material-symbols-outlined">
+                shopping_cart
+            </span>
+        </button>
+    </div> 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script src="script.js" defer></script>   
+</body>
+</html>
