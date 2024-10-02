@@ -110,11 +110,17 @@ body{
     transition: 0.1s;
     
 }
-.burguer img:hover{
+.grid .burguer img:hover{
     transform:rotate(-2deg);
     width: 90px;
     height: 90px;
 }
+.grid2 .burguer img:hover{
+    transform:rotate(-2deg);
+    width: 90px;
+    height: 90px;
+}
+
 .material-symbols-outlined{
     width: 40px;
     background-color: black;
@@ -240,9 +246,14 @@ body{
     border-radius: 50%;
     color: white;
     cursor: pointer;
-    
-    
+    transition: 0.2s ease;
 }
+.Btn_car_qtd:hover{
+    background-color: rgb(238, 234, 18);
+    color: black;
+    transform: scale(1.5);
+}
+
 .item_car_total{
     display: flex;
     align-items:center;

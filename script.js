@@ -137,15 +137,11 @@ document.addEventListener('DOMContentLoaded', function(){
                         Remover
                     </button>
                     <div class="item_car">
-                        <div class="Btn_car_qtd" data-name="${item.name}" data-price="${item.price}" data-img="${item.image}">
-                            <p>-</p>
-                        </div>
+                        <Button class="Btn_car_qtd" data-name="${item.name}" data-price="${item.price}" data-img="${item.image}">-</Button>
                         <div class="item_car_qtd">
                             <p>${item.quantity}</p>
                         </div>
-                        <div class="Btn_car_qtd" data-name="${item.name}" data-price="${item.price}" data-img="${item.image}">
-                            <p>+</p>
-                        </div>
+                        <Button class="Btn_car_qtd" data-name="${item.name}" data-price="${item.price}" data-img="${item.image}">+</Button>
                     </div>
                 </div>
             </div>
