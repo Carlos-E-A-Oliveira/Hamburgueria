@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     </div>
                 </div>
                 <div>
-                    <button class="btn_close" data-name="${item.name}"> 
+                    <button class="btn_delete" data-name="${item.name}"> 
                         Remover
                     </button>
                     <div class="item_car">
@@ -158,14 +158,7 @@ document.addEventListener('DOMContentLoaded', function(){
             currency:"BRL"
         })
 
-       /*  // como a variavel está buscando uma coleção de classes, é necessário fazer uma verificação em todos os itens de mesma classe
-        for (let i = 0; i < totalPrice2.length; i++) {
-            totalPrice2[i].textContent = subtotal.toLocaleString("pt-BR", {
-                style: "currency",
-                currency: "BRL"
-            });
-        } */
-
+       
         if(add == 0){
             quantidade += 1;
             
@@ -234,6 +227,31 @@ document.addEventListener('DOMContentLoaded', function(){
             add = 1;
             carList();
             add = 0;
+        } 
+    }
+
+    itensCart.addEventListener("click", function(event){
+        if(event.target.classList.contains("btn_delete")){
+            const name = event.target.getAttribute("data-name");
+            deleteItemCart(name);
+            
+            chamada1.classList.remove("pulsar");
+            void chamada1.offsetWidth;
+            chamada1.classList.add("pulsar");
+        }
+    })
+
+    function deleteItemCart(name){
+        const index = list.findIndex(item => item.name === name);
+        
+        if(index !== -1){  
+            const item = list[index];
+            
+            quantidade -= item.quantity+1;
+            list.splice(index, 1);
+
+            carList();
+            
         } 
     }
 
