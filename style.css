@@ -374,6 +374,42 @@ body{
 
 }
 
+.under_construction{
+    position:fixed;
+    z-index: 100;
+    width: 250px;
+    height: 250px;
+    bottom: -100px;
+    transform: translateX(50%);
+    animation: slideUp 2s forwards;
+    right: 200px;
+    padding: 10px;
+    overflow: hidden;
+    display: flex;
+    
+}
+
+.under_construction img{
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+.btn_underC{
+    width: 20px;
+    height: 20px;
+    background-color:  rgb(199, 199, 199);
+    border-radius: 50%;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    float: right;
+    z-index: 99;
+    position: fixed;
+    right: 20px;
+    top: 20px;
+}
+
 @media screen and (max-width: 600px) {
 .grid{
     display: block;
@@ -398,6 +434,23 @@ body{
     }
     100%{
         transform: scale(1);
+    }
+}
+
+@keyframes slideUp {
+    0% {
+        bottom: -250px; 
+    }
+    100% {
+        bottom: 30px; 
+    }
+}
+@keyframes slideDown {
+    0% {
+        bottom: 30px; 
+    }
+    100% {
+        bottom: -250px; 
     }
 }
 .pulsar{

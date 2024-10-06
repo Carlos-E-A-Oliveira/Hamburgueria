@@ -18,6 +18,8 @@ document.addEventListener('DOMContentLoaded', function(){
     const stars = document.querySelectorAll(".star_vote");
     const product1 = document.getElementById("product1");
     const voteProduct = document.querySelectorAll(".voteProduct");
+    const btn_underC = document.getElementById("btn_underC");
+    const under_construction = document.getElementById("under_construction");
     const btn_vote = document.querySelectorAll(".btn_vote");
     const btn_vote2 = document.querySelectorAll(".btn_vote2");
 
@@ -377,12 +379,9 @@ document.addEventListener('DOMContentLoaded', function(){
     });
 
 
-    /* btn_vote2.forEach(button =>{
-        button.addEventListener('click',()=>{
-            
-        })
+    btn_underC.addEventListener('click',()=>{
+        under_construction.style.animation = "slideDown 0.5s forwards";
+        console.log("funcionou");
     })
-
-    }) */
     
 });
