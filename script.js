@@ -11,14 +11,27 @@ document.addEventListener('DOMContentLoaded', function(){
     const endereco2 = document.getElementById("endereco2");
     const DigiteEnd = document.getElementById("DigiteEnd");
     const bnt_finish = document.getElementById("bnt_finish");
-    
+    const btn_vote_exit = document.getElementById("btn_vote_exit");
+    const back_car = document.getElementById("back_car");
+    const name_vote = document.getElementById("name_vote");
+    const name_burguer_vote = document.getElementById("name_burguer_vote");
+    const stars = document.querySelectorAll(".star_vote");
+    const product1 = document.getElementById("product1");
+    const voteProduct = document.querySelectorAll(".voteProduct");
+    const btn_vote = document.querySelectorAll(".btn_vote");
+    const btn_vote2 = document.querySelectorAll(".btn_vote2");
+
+       
    
 
     let list = [];
     let quantidade = 0; //quantidade de itens no carrinho rodapé
     let add = 0; // 0=adiciona 1=remove // itens do carrinho rodapé
     let ativo = 0; // 0=none, 1=block
-    
+    let productVote1 = 10;
+    let productVote2 = 0;
+    let productVote3 = 0;
+    let productVote4 = 0;
 
     chamada1.addEventListener("click",function(){
         
@@ -29,21 +42,21 @@ document.addEventListener('DOMContentLoaded', function(){
         } else{
             carrinho.style.display = "none";
             ativo =0;
-        }
+        };
 
-    })
+    });
 
     carrinho.addEventListener("click",function(event){
         if(event.target === car){
             carrinho.style.display = "none";
             ativo =0;
-        }
-    })
+        };
+    });
 
     btn_fechar.addEventListener("click",function(){
         carrinho.style.display = "none";
         ativo =0;
-    })
+    });
 
     grid.addEventListener("click",function(event){ //a função vai procurar dentro de "grid" que é a div pai qualquer elemento que tenha o nome "button"
         let parentBnt = event.target.closest(".button"); //para localizar uma classe, necessita colocar ".", enquanto procurar uma id coloca-se "#"
@@ -57,8 +70,8 @@ document.addEventListener('DOMContentLoaded', function(){
             chamada1.classList.remove("pulsar");
             void chamada1.offsetWidth;
             chamada1.classList.add("pulsar");
-        }
-    })
+        };
+    });
 
     grid2.addEventListener("click",function(event){ 
         let parentBnt = event.target.closest(".button"); 
@@ -72,9 +85,9 @@ document.addEventListener('DOMContentLoaded', function(){
             chamada1.classList.remove("pulsar");
             void chamada1.offsetWidth;
             chamada1.classList.add("pulsar");
-        }
+        };
         
-    })
+    });
 
     itensCart.addEventListener("click", function(event) {
         // Verifica se o clique foi no botão de remover (diminuir quantidade)
@@ -89,12 +102,12 @@ document.addEventListener('DOMContentLoaded', function(){
                 addToCard(name, price, image); // Adiciona item
             } else if (event.target.textContent === "-") {
                 removeItemCart(name); // Remove item
-            }
+            };
             
             chamada1.classList.remove("pulsar");
             void chamada1.offsetWidth;
             chamada1.classList.add("pulsar");
-        }
+        };
     });
 
     function addToCard(name,price,image){
@@ -111,10 +124,10 @@ document.addEventListener('DOMContentLoaded', function(){
                 quantity: 1,
                 image
                 
-        })
+        });
         carList();
-        }
-    }
+        };
+    };
 
     function carList(){
         itensCart.innerHTML = ""; 
@@ -150,13 +163,13 @@ document.addEventListener('DOMContentLoaded', function(){
 
             total += item.price * item.quantity;
             
-        })
+        });
 
         // como a variavel está buscando uma ID, somente buscando seus elementos já basta pra colocar em moeda Brasil
         totalPrice.textContent = total.toLocaleString("pt-BR",{
             style: "currency",
             currency:"BRL"
-        })
+        });
 
        
         if(add == 0){
@@ -190,14 +203,14 @@ document.addEventListener('DOMContentLoaded', function(){
                 },
                 onClick: function(){} // Callback after click
               }).showToast();
-        }
+        };
         
         car_count.textContent = quantidade; 
         /* car_count.innerHTML = list.length; */ // esta função calcula a quantidade de itens diferentes no carrinho, contando como 1 vários itens de mesmo nome
 
         
         
-    }
+    };
 
     itensCart.addEventListener("click", function(event){
         if(event.target.classList.contains("btn_close")){
@@ -208,7 +221,7 @@ document.addEventListener('DOMContentLoaded', function(){
             void chamada1.offsetWidth;
             chamada1.classList.add("pulsar");
         }
-    })
+    });
 
     function removeItemCart(name){
         const index = list.findIndex(item => item.name === name);
@@ -228,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function(){
             carList();
             add = 0;
         } 
-    }
+    };
 
     itensCart.addEventListener("click", function(event){
         if(event.target.classList.contains("btn_delete")){
@@ -239,7 +252,7 @@ document.addEventListener('DOMContentLoaded', function(){
             void chamada1.offsetWidth;
             chamada1.classList.add("pulsar");
         }
-    })
+    });
 
     function deleteItemCart(name){
         const index = list.findIndex(item => item.name === name);
@@ -253,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function(){
             carList();
             
         } 
-    }
+    };
 
     endereco2.addEventListener("input", function(event){
         let endereco2Valor = event.target.value;
@@ -262,7 +275,7 @@ document.addEventListener('DOMContentLoaded', function(){
             DigiteEnd.style.display = "none";
             endereco2.style.border = "2px solid grey";
         }
-    })
+    });
 
     bnt_finish.addEventListener("click", function(){
         if(list.length === 0){ // se a quantidade da lista for igual a zero, nada acontece
@@ -289,14 +302,14 @@ document.addEventListener('DOMContentLoaded', function(){
         list = [];
         endereco2.value = "";
         carList();
-    })
+    });
 
     function checkRestaurantOpen(){
         const data = new Date();
         const hora = data.getHours();
 
         return hora >= 18 && hora < 23;
-    }
+    };
 
     const hor = document.getElementById("hor");
     const isOpen = checkRestaurantOpen();
@@ -305,7 +318,71 @@ document.addEventListener('DOMContentLoaded', function(){
         hor.style.backgroundColor = "rgb(19, 87, 31)";
     }else{
         hor.style.backgroundColor = "red";
-    }
+    };
 
+    //Sistema de votos e estrelas
+
+    stars.forEach((star,index) =>{
+
+        let nota = 0;
+
+        star.addEventListener('mouseover',function(){
+            
+            for(let i=0; i<=index;i++){
+                stars[i].classList.add("filled");
+            }
+        });
+
+        star.addEventListener('mouseout',()=>{
+
+            for(let i=0;i<=index;i++){
+                stars[i].classList.remove("filled");
+                
+            }
+        });
+        
+        
+        star.addEventListener('click',()=>{
+            
+            stars.forEach((s)=>{
+                s.classList.remove("selected");
+            }); 
+               
+            for(let i=0;i<=index;i++){
+                    stars[i].classList.add("selected");
+                    nota = index+1;
+                    console.log(nota);
+                    
+            }
+        });
+
+    });
     
-})
+    // esconder janela de sistemas de votos
+    btn_vote_exit.addEventListener('click',()=>{
+        back_car.style.display = "none";
+    });
+
+    btn_vote.forEach(button =>{
+        button.addEventListener('click',()=>{
+            const productName = button.getAttribute("data-name");
+            const productImg = button.getAttribute("data-img");
+            
+            name_vote.textContent = productName;
+            name_burguer_vote.innerHTML = `<img src="${productImg}" alt="${productName}">`;
+            
+            back_car.style.display = "block";
+            
+        })
+    });
+
+
+    /* btn_vote2.forEach(button =>{
+        button.addEventListener('click',()=>{
+            
+        })
+    })
+
+    }) */
+    
+});
