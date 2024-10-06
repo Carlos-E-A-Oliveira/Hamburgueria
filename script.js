@@ -6,7 +6,6 @@ document.addEventListener('DOMContentLoaded', function(){
     const grid2 = document.getElementById("grid2");
     const itensCart = document.getElementById("itens-cart");
     const totalPrice = document.getElementById("total-price");
-    const totalPrice2 = document.getElementsByClassName("total-price2");
     const car_count = document.getElementById("car_count");
     const endereco2 = document.getElementById("endereco2");
     const DigiteEnd = document.getElementById("DigiteEnd");
@@ -17,11 +16,17 @@ document.addEventListener('DOMContentLoaded', function(){
     const name_burguer_vote = document.getElementById("name_burguer_vote");
     const stars = document.querySelectorAll(".star_vote");
     const product1 = document.getElementById("product1");
-    const voteProduct = document.querySelectorAll(".voteProduct");
+    const product2 = document.getElementById("product2");
+    const product3 = document.getElementById("product3");
+    const product4 = document.getElementById("product4");
     const btn_underC = document.getElementById("btn_underC");
     const under_construction = document.getElementById("under_construction");
     const btn_vote = document.querySelectorAll(".btn_vote");
-    const btn_vote2 = document.querySelectorAll(".btn_vote2");
+    const btn_vote2 = document.getElementById("btn_vote2");
+    const media1 = document.getElementById("media1");
+    const media2 = document.getElementById("media2");
+    const media3 = document.getElementById("media3");
+    const media4 = document.getElementById("media4");
 
        
    
@@ -30,10 +35,24 @@ document.addEventListener('DOMContentLoaded', function(){
     let quantidade = 0; //quantidade de itens no carrinho rodapé
     let add = 0; // 0=adiciona 1=remove // itens do carrinho rodapé
     let ativo = 0; // 0=none, 1=block
-    let productVote1 = 10;
-    let productVote2 = 0;
-    let productVote3 = 0;
-    let productVote4 = 0;
+    let nota =0; //nota a ser inserida em cada produto
+    let voteName =""; //nome  do produto a receber a nota
+    let productVote1 =[0,0];
+    let productVote2 =[0,0];
+    let productVote3 =[0,0];
+    let productVote4 =[0,0];
+
+    function updateVoteMedia() {
+        VoteMedia1 = productVote1[1] > 0 ? productVote1[0] / productVote1[1] : 0;
+        VoteMedia2 = productVote2[1] > 0 ? productVote2[0] / productVote2[1] : 0;
+        VoteMedia3 = productVote3[1] > 0 ? productVote3[0] / productVote3[1] : 0;
+        VoteMedia4 = productVote4[1] > 0 ? productVote4[0] / productVote4[1] : 0;
+    
+        media1.textContent = VoteMedia1.toFixed(2); //toFixed devolve número fixo de casas decimais
+        media2.textContent = VoteMedia2.toFixed(2);
+        media3.textContent = VoteMedia3.toFixed(2);
+        media4.textContent = VoteMedia4.toFixed(2);
+    }
 
     chamada1.addEventListener("click",function(){
         
@@ -125,7 +144,6 @@ document.addEventListener('DOMContentLoaded', function(){
                 price,
                 quantity: 1,
                 image
-                
         });
         carList();
         };
@@ -326,7 +344,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     stars.forEach((star,index) =>{
 
-        let nota = 0;
+        nota = 0;
 
         star.addEventListener('mouseover',function(){
             
@@ -343,7 +361,6 @@ document.addEventListener('DOMContentLoaded', function(){
             }
         });
         
-        
         star.addEventListener('click',()=>{
             
             stars.forEach((s)=>{
@@ -353,7 +370,7 @@ document.addEventListener('DOMContentLoaded', function(){
             for(let i=0;i<=index;i++){
                     stars[i].classList.add("selected");
                     nota = index+1;
-                    console.log(nota);
+                    
                     
             }
         });
@@ -372,6 +389,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
             name_vote.textContent = productName;
             name_burguer_vote.innerHTML = `<img src="${productImg}" alt="${productName}">`;
+            voteName = productName;
             
             back_car.style.display = "block";
             
@@ -381,7 +399,54 @@ document.addEventListener('DOMContentLoaded', function(){
 
     btn_underC.addEventListener('click',()=>{
         under_construction.style.animation = "slideDown 0.5s forwards";
-        console.log("funcionou");
+        
     })
+
+    
+    btn_vote2.addEventListener('click', ()=>{
+        
+       if(voteName == "Hamburguer Style"){
+            productVote1[0] += nota;
+            productVote1[1] +=1;
+            
+            product1.textContent = productVote1[1];
+            
+            
+        }else if(voteName == "Hamburguer Duplo"){
+            productVote2[0] += nota;
+            productVote2[1] +=1;
+            
+            product2.textContent = productVote2[1];
+            
+            
+        }else if(voteName == "Hamburguer X-Salada"){
+            productVote3[0] += nota;
+            productVote3[1] +=1;
+            
+            product3.textContent = productVote3[1];
+            
+        }else{
+            productVote4[0] += nota;
+            productVote4[1] +=1;
+            
+            product4.textContent = productVote4[1];
+            
+        }
+
+        updateVoteMedia();
+
+        back_car.style.display = "none";
+        
+        stars.forEach((star,index) =>{
+
+            for(let i=0;i<=index;i++){
+
+                stars[i].classList.remove("selected");
+            }
+        });
+    
+    });
     
 });
+    
+
