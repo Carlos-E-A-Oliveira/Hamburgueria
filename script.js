@@ -21,12 +21,13 @@ document.addEventListener('DOMContentLoaded', function(){
     const product4 = document.getElementById("product4");
     const btn_underC = document.getElementById("btn_underC");
     const under_construction = document.getElementById("under_construction");
-    const btn_vote = document.querySelectorAll(".btn_vote");
     const btn_vote2 = document.getElementById("btn_vote2");
     const media1 = document.getElementById("media1");
     const media2 = document.getElementById("media2");
     const media3 = document.getElementById("media3");
     const media4 = document.getElementById("media4");
+    const btn_vote = document.querySelectorAll(".btn_vote");
+    const prod1_star =document.querySelectorAll(".prod1");
 
        
    
@@ -53,6 +54,10 @@ document.addEventListener('DOMContentLoaded', function(){
         media3.textContent = VoteMedia3.toFixed(2);
         media4.textContent = VoteMedia4.toFixed(2);
     }
+    let VoteMedia1 = 0;
+    let VoteMedia2 = 0;
+    let VoteMedia3 = 0;
+    let VoteMedia4 = 0;
 
     chamada1.addEventListener("click",function(){
         
@@ -434,6 +439,7 @@ document.addEventListener('DOMContentLoaded', function(){
         }
 
         updateVoteMedia();
+        miniStarvote();
 
         back_car.style.display = "none";
         
@@ -446,6 +452,26 @@ document.addEventListener('DOMContentLoaded', function(){
         });
     
     });
+    
+    function miniStarvote(){
+        prod1_star.forEach((s, index) => {
+            const starValue = parseInt(s.getAttribute("data-value"));
+            console.log(VoteMedia1);
+    
+            if (starValue <= VoteMedia1) { 
+                
+                prod1_star[index].classList.add("filled"); 
+                s.innerHTML = "&#9733;";
+                console.log("classe acrescentada para a star", prod1_star[index]); 
+            } else{
+                prod1_star[index].classList.remove("filled"); 
+                s.innerHTML = "&#9734;";
+            }
+        });
+    }
+    
+
+
     
 });
     

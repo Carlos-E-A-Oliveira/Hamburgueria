@@ -155,13 +155,15 @@ body{
     transition: 0.2s;
 }
 .star_vote:hover{
-    color: yellow;
+    color: orangered;
     transform: scale(1.5);
 }
 .star_vote.filled{
-    color: yellow;
+    color: orangered;
 }
-
+.filled{
+    color: orangered;
+}
 .star_vote.filled::before{
     content:"\2605";
 }
@@ -173,7 +175,7 @@ body{
 }
 
 .star_vote.selected::before{
-    color: yellow;
+    color: orangered;
     content: "\2605";
 }
 
@@ -378,7 +380,7 @@ body{
     position:fixed;
     z-index: 100;
     width: 250px;
-    height: 250px;
+    height: 200px;
     bottom: -100px;
     transform: translateX(50%);
     animation: slideUp 2s forwards;
@@ -398,7 +400,7 @@ body{
 .btn_underC{
     width: 20px;
     height: 20px;
-    background-color:  rgb(199, 199, 199);
+    background-color:  rgb(0, 0, 0);
     border-radius: 50%;
     color: white;
     font-weight: bold;
