@@ -28,6 +28,9 @@ document.addEventListener('DOMContentLoaded', function(){
     const media4 = document.getElementById("media4");
     const btn_vote = document.querySelectorAll(".btn_vote");
     const prod1_star =document.querySelectorAll(".prod1");
+    const prod2_star =document.querySelectorAll(".prod2");
+    const prod3_star =document.querySelectorAll(".prod3");
+    const prod4_star =document.querySelectorAll(".prod4");
 
        
    
@@ -42,6 +45,8 @@ document.addEventListener('DOMContentLoaded', function(){
     let productVote2 =[0,0];
     let productVote3 =[0,0];
     let productVote4 =[0,0];
+    let prod_star;
+    let voteMedia;
 
     function updateVoteMedia() {
         VoteMedia1 = productVote1[1] > 0 ? productVote1[0] / productVote1[1] : 0;
@@ -408,11 +413,15 @@ document.addEventListener('DOMContentLoaded', function(){
     })
 
     
-    btn_vote2.addEventListener('click', ()=>{
+    btn_vote2.addEventListener('click', (event)=>{
+        
         
        if(voteName == "Hamburguer Style"){
             productVote1[0] += nota;
             productVote1[1] +=1;
+            updateVoteMedia();
+            prod_star = prod1_star;
+            voteMedia = VoteMedia1;
             
             product1.textContent = productVote1[1];
             
@@ -420,6 +429,9 @@ document.addEventListener('DOMContentLoaded', function(){
         }else if(voteName == "Hamburguer Duplo"){
             productVote2[0] += nota;
             productVote2[1] +=1;
+            updateVoteMedia();
+            prod_star = prod2_star;
+            voteMedia = VoteMedia2;
             
             product2.textContent = productVote2[1];
             
@@ -427,23 +439,28 @@ document.addEventListener('DOMContentLoaded', function(){
         }else if(voteName == "Hamburguer X-Salada"){
             productVote3[0] += nota;
             productVote3[1] +=1;
+            updateVoteMedia();
+            prod_star = prod3_star;
+            voteMedia = VoteMedia3;
             
             product3.textContent = productVote3[1];
             
         }else{
             productVote4[0] += nota;
             productVote4[1] +=1;
+            updateVoteMedia();
+            prod_star = prod4_star;
+            voteMedia = VoteMedia4;
             
             product4.textContent = productVote4[1];
             
         }
-
-        updateVoteMedia();
+        
         miniStarvote();
-
+ 
         back_car.style.display = "none";
         
-        stars.forEach((star,index) =>{
+        stars.forEach((index) =>{
 
             for(let i=0;i<=index;i++){
 
@@ -454,18 +471,22 @@ document.addEventListener('DOMContentLoaded', function(){
     });
     
     function miniStarvote(){
-        prod1_star.forEach((s, index) => {
+        prod_star.forEach((s, index) => {
             const starValue = parseInt(s.getAttribute("data-value"));
-            console.log(VoteMedia1);
-    
-            if (starValue <= VoteMedia1) { 
+            
+            
+                        
+            if (starValue <= voteMedia) { 
                 
-                prod1_star[index].classList.add("filled"); 
+                prod_star[index].classList.add("filled"); 
                 s.innerHTML = "&#9733;";
-                console.log("classe acrescentada para a star", prod1_star[index]); 
+                console.log("estrela completa");
+                
+                
             } else{
-                prod1_star[index].classList.remove("filled"); 
+                prod_star[index].classList.remove("filled"); 
                 s.innerHTML = "&#9734;";
+                console.log("estrela vazia");
             }
         });
     }
