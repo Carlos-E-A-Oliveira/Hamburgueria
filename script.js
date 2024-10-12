@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
     let list = [];
     let quantidade = 0; //quantidade de itens no carrinho rodapé
-    let add = 0; // 0=adiciona 1=remove // itens do carrinho rodapé
+    let adic = 0; // 0=+ 1=- // itens do carrinho rodapé
     let ativo = 0; // 0=none, 1=block
     let nota =0; //nota a ser inserida em cada produto
     let voteName =""; //nome  do produto a receber a nota
@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', function(){
         });
 
        
-        if(add == 0){
+        if(adic == 0){
             quantidade += 1;
             
             Toastify({
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 onClick: function(){} // Callback after click
               }).showToast();
 
-        }else{
+        }else if(adic== 1){
             quantidade -= 1;
 
             Toastify({
@@ -233,7 +233,25 @@ document.addEventListener('DOMContentLoaded', function(){
                 },
                 onClick: function(){} // Callback after click
               }).showToast();
-        };
+        }else{
+
+            quantidade -= 1;
+
+            Toastify({
+                text: "Produto excluído!",
+                duration: 3000,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "right", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "red",
+                },
+                onClick: function(){} // Callback after click
+              }).showToast();
+        }
+        adic = 0;
+    
         
         car_count.textContent = quantidade; 
         /* car_count.innerHTML = list.length; */ // esta função calcula a quantidade de itens diferentes no carrinho, contando como 1 vários itens de mesmo nome
@@ -267,9 +285,9 @@ document.addEventListener('DOMContentLoaded', function(){
 
             }
 
-            add = 1;
+            adic = 1;
             carList();
-            add = 0;
+            adic = 0;
         } 
     };
 
@@ -290,12 +308,15 @@ document.addEventListener('DOMContentLoaded', function(){
         if(index !== -1){  
             const item = list[index];
             
-            quantidade -= item.quantity+1;
+            quantidade -= item.quantity-1;
             list.splice(index, 1);
+            adic=2;
 
             carList();
             
         } 
+       
+        
     };
 
     endereco2.addEventListener("input", function(event){
